@@ -12,4 +12,13 @@ export const addItemToCart = (item) => {
   };
 };
 
+export const clearItemFromCart = (item) => ({
+  type: cartActionTypes.CLEAR_ITEM_FROM_CART,
+  payload: item,
+});
+
+export const removeItemFromCart = (item) => ({
+  type: cartActionTypes.REMOVE_ITEM_FROM_CART,
+  payload: item,
+});
 export default toggleCartHidden;

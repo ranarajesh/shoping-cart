@@ -14,6 +14,7 @@ import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utills'; // auth is used to check the current state of user weather it is loggedin or loggedout. firebase auth proved open subscription or open messeging system to evalute the state of user on the fly, it is observer based pattern
 import setCurrentUser from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selectors';
+import Checkout from './pages/checkout/checkout.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -53,6 +54,7 @@ class App extends React.Component {
               )
             }
           />
+          <Route exact path="/checkout" component={Checkout} />
         </Switch>
       </div>
     );
