@@ -12,14 +12,15 @@ import {
 } from './header.styles';
 
 import { ReactComponent as Logo } from '../../assests/crown.svg';
-import { auth } from '../../firebase/firebase.utills';
+//import { auth } from '../../firebase/firebase.utills';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import { selectHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { signOutStart } from '../../redux/user/user.action';
 
-const Header = ({ currentUser, isCartHidden }) => (
+const Header = ({ currentUser, isCartHidden, dispatch }) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo></Logo>
@@ -29,7 +30,7 @@ const Header = ({ currentUser, isCartHidden }) => (
       <OptionLink to="/shop">SHOP</OptionLink>
       <OptionLink to="/shop">CONTACT </OptionLink>
       {currentUser ? (
-        <OptionLink as="div" onClick={() => auth.signOut()}>
+        <OptionLink as="div" onClick={() => dispatch(signOutStart())}>
           SIGN OUT
         </OptionLink>
       ) : (
