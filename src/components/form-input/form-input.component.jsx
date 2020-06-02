@@ -10,7 +10,11 @@ import {
 const FormInput = ({ handleChange, label, ...otherProps }) => (
   <GroupContainer>
     <FormInputContainer onChange={handleChange} {...otherProps} />
-    {label ? <FormInputLabel>{label}</FormInputLabel> : null}
+    {label ? (
+      <FormInputLabel className={otherProps.value.length ? 'shrink' : ''}>
+        {label}
+      </FormInputLabel>
+    ) : null}
   </GroupContainer>
 );
 export default FormInput;
